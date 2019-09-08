@@ -4,9 +4,7 @@ set -e
 pushd build
 make -j2
 
-pushd parser
 ./EmbGenParserTest
-popd
 
 popd
 

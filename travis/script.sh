@@ -8,6 +8,4 @@ make -j2
 
 popd
 
-pushd parser
 cppcheck src/*.cpp include/Parser/EmbGen/*.hpp
-popd

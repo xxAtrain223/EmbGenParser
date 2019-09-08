@@ -9,4 +9,4 @@ lcov --remove coverage.info 'test/*' --output-file coverage.info # filter out te
 
 lcov --list coverage.info #debug info
 
-bash <(curl -s https://codecov.io/bash) -t 2e545078-b47f-4d89-b5c7-f3ae010b4162
+bash <(curl -s https://codecov.io/bash) -t 971f7e2a-4b5a-482d-8452-692080cb3daa

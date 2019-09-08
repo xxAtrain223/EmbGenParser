@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 project(EmbGenParser LANGUAGES CXX)
 
-option(EMB_ENABLE_TESTING "Enable Testing for EmbGen" ON)
+option(${PROJECT_NAME}_ENABLE_TESTING "Enable Testing for ${PROJECT_NAME}" OFF)
 
 add_subdirectory(ext)
 
@@ -13,7 +13,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 14 CXX_STANDARD_RE
 target_include_directories(${PROJECT_NAME} PUBLIC include)
 target_link_libraries(${PROJECT_NAME} tinyxml2)
 
-if (EMB_ENABLE_TESTING)
+if (${PROJECT_NAME}_ENABLE_TESTING)
     target_compile_options(${PROJECT_NAME} PRIVATE -g -O0 --coverage -DEMB_TESTING)
     set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "--coverage")
 

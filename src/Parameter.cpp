@@ -51,6 +51,15 @@ namespace emb
                     m_appendage = "";
                 }
 
+                try
+                {
+                    m_default = getAttribute("default")->Value();
+                }
+                catch (AttributeException)
+                {
+                    m_default = "";
+                }
+
                 if (!isAttributesEmpty())
                 {
                     throw AttributeException("Extra attributes for Parameter on line " + std::to_string(getLineNum()));
@@ -90,6 +99,11 @@ namespace emb
             std::string Parameter::getAppendage() const
             {
                 return m_appendage;
+            }
+
+            std::string Parameter::getDefault() const
+            {
+                return m_default;
             }
         }
     }

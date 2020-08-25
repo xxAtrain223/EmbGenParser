@@ -1,7 +1,7 @@
 #ifndef EMBGEN_PARSER_INCLUDE_HPP
 #define EMBGEN_PARSER_INCLUDE_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
+#include <string>
 
 namespace emb
 {
@@ -9,13 +9,12 @@ namespace emb
     {
         namespace parser
         {
-            class Include : private XmlElement
+            class Include
             {
                 std::string m_value;
                 bool m_standard;
 
             public:
-                Include(const tinyxml2::XMLElement* xml);
 
                 std::string getValue() const;
 

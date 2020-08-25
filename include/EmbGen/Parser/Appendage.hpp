@@ -1,7 +1,6 @@
 #ifndef EMBGEN_PARSER_APPENDAGE_HPP
 #define EMBGEN_PARSER_APPENDAGE_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
 #include "EmbGen/Parser/Command.hpp"
 #include "EmbGen/Parser/Include.hpp"
 #include "EmbGen/Parser/Loop.hpp"
@@ -19,7 +18,7 @@ namespace emb
     {
         namespace parser
         {
-            class Appendage : public XmlElement
+            class Appendage
             {
                 std::string m_name;
                 std::string m_version;
@@ -32,7 +31,7 @@ namespace emb
                 std::shared_ptr<Stop> m_stop;
 
             public:
-                Appendage(const tinyxml2::XMLElement* xml);
+                Appendage();
 
                 std::string getName() const;
 

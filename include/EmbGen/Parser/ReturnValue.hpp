@@ -1,7 +1,7 @@
 #ifndef EMBGEN_PARSER_RETURNVALUE_HPP
 #define EMBGEN_PARSER_RETURNVALUE_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
+#include <string>
 
 namespace emb
 {
@@ -9,12 +9,11 @@ namespace emb
     {
         namespace parser
         {
-            class ReturnValue : public XmlElement
+            class ReturnValue
             {
                 std::string m_type, m_name;
 
             public:
-                ReturnValue(const tinyxml2::XMLElement* xml);
 
                 std::string getType() const;
 

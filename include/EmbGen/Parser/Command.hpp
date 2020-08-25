@@ -1,7 +1,6 @@
 #ifndef EMBGEN_PARSER_COMMAND_HPP
 #define EMBGEN_PARSER_COMMAND_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
 #include <vector>
 #include <memory>
 #include "EmbGen/Parser/Parameter.hpp"
@@ -16,7 +15,7 @@ namespace emb
         {
             class Appendage;
 
-            class Command : public XmlElement
+            class Command
             {
                 std::string m_name;
                 std::vector<Parameter> m_parameters;
@@ -24,7 +23,7 @@ namespace emb
                 std::shared_ptr<Code> m_code;
 
             public:
-                Command(const tinyxml2::XMLElement* xml);
+                Command();
                 Command(std::string name, std::vector<Parameter>&& parameters, std::vector<ReturnValue>&& returnValues, std::shared_ptr<Code> code);
 
                 std::string getName() const;

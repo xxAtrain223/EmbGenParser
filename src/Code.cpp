@@ -1,5 +1,4 @@
 #include "EmbGen/Parser/Code.hpp"
-#include <tinyxml2.h>
 #include "EmbGen/Parser/Exceptions.hpp"
 
 #include <regex>
@@ -15,44 +14,8 @@ namespace emb
     {
         namespace parser
         {
-            Code::Code(const tinyxml2::XMLElement* xml) :
-                XmlElement(xml)
+            Code::Code()
             {
-                std::string insert = "";
-
-                try
-                {
-                    insert = getAttribute("insert")->Value();
-                }
-                catch (AttributeException)
-                {
-                    m_insert = Insert::Each;
-                }
-
-                if (insert == "each")
-                {
-                    m_insert = Insert::Each;
-                }
-                else if (insert == "once")
-                {
-                    m_insert = Insert::Once;
-                }
-                else if (!insert.empty())
-                {
-                    throw AttributeException("Invalid 'insert' attribute on line " + std::to_string(getLineNum()));
-                }
-
-                m_text = processCode(XmlElement::getText());
-
-                if (!isAttributesEmpty())
-                {
-                    throw AttributeException("Extra attributes for Code on line " + std::to_string(getLineNum()));
-                }
-
-                if (!isElementsEmpty())
-                {
-                    throw ElementException("Extra elements for Code on line " + std::to_string(getLineNum()));
-                }
             }
 
             Code::Code(std::string text, Insert insert) :
@@ -65,10 +28,6 @@ namespace emb
                 return m_insert;
             }
 
-            std::string Code::getText() const
-            {
-                return m_text;
-            }
 
             std::string Code::processCode(const std::string& text)
             {

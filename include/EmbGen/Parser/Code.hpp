@@ -1,7 +1,7 @@
 #ifndef EMBGEN_PARSER_CODE_HPP
 #define EMBGEN_PARSER_CODE_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
+#include <string>
 
 namespace emb
 {
@@ -9,7 +9,7 @@ namespace emb
     {
         namespace parser
         {
-            class Code : public XmlElement
+            class Code
             {
             public:
                 enum class Insert
@@ -19,9 +19,8 @@ namespace emb
                 };
 
                 Insert getInsert() const;
-                virtual std::string getText() const override;
 
-                Code(const tinyxml2::XMLElement* xml);
+                Code();
                 Code(std::string text, Insert insert = Insert::Each);
 
             private:

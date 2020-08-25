@@ -1,7 +1,6 @@
 #ifndef EMBGEN_PARSER_SETUP_HPP
 #define EMBGEN_PARSER_SETUP_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
 #include <vector>
 #include "EmbGen/Parser/Code.hpp"
 
@@ -11,12 +10,11 @@ namespace emb
     {
         namespace parser
         {
-            class Setup : public XmlElement
+            class Setup
             {
                 std::vector<Code> m_code;
 
             public:
-                Setup(const tinyxml2::XMLElement* xml);
 
                 std::vector<Code> getCode() const;
             };

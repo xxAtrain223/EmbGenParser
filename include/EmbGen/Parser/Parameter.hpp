@@ -1,7 +1,7 @@
 #ifndef EMBGEN_PARSER_PARAMETER_HPP
 #define EMBGEN_PARSER_PARAMETER_HPP
 
-#include "EmbGen/Parser/XmlElement.hpp"
+#include <string>
 
 namespace emb
 {
@@ -9,13 +9,12 @@ namespace emb
     {
         namespace parser
         {
-            class Parameter : public XmlElement
+            class Parameter
             {
                 std::string m_type, m_name, m_min, m_max, m_appendage, m_default;
                 bool m_core;
 
             public:
-                Parameter(const tinyxml2::XMLElement* xml);
 
                 std::string getType() const;
                 
